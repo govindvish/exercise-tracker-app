@@ -42,23 +42,26 @@ class CreateUser extends Component {
 
     render() {
         return (
-            <div>
-                <h3>Create New User</h3>
-                <form onSubmit={this.handleSubmit}>
-                    <div className="form-group">
-                        <label>Username: </label>
-                        <input type="text"
-                            required
-                            className="form-control"
-                            name="username"
-                            value={this.state.username}
-                            onChange={this.handleChange}
-                        />
-                    </div>
-                    <div className="form-group">
-                        <input className="btn btn-primary" type="submit" value="Create User" />
-                    </div>
-                </form>
+            <div className="create-user">
+                <h3 className="mb-4 text-center">Create New User</h3>
+                <div className="col offset-md-3 offset-lg-3 col-md-6 col-lg-6 p-5 create-user-form">
+                    <form onSubmit={this.handleSubmit}>
+                        <div className="form-group">
+                            <label>Username: </label>
+                            <input type="text"
+                                required
+                                className="form-control"
+                                name="username"
+                                placeholder="enter user"
+                                value={this.state.username}
+                                onChange={this.handleChange}
+                            />
+                        </div>
+                        <div className="form-group text-center mt-5">
+                            <input className="btn btn-outline-light btn-lg" type="submit" value="Create User" />
+                        </div>
+                    </form>
+                </div>
             </div>
         );
     }

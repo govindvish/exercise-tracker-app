@@ -42,10 +42,10 @@ class Exercises extends Component {
     render() {
         if (this.state.exercises.length !== 0) {
             return (
-                <div>
-                    <h3>Exercises Log</h3>
-                    <table className="table">
-                        <thead className="thead-light">
+                <div className="exercise-log">
+                    <h3 className="mb-4 text-center">Exercises Log</h3>
+                    <table className="table table-responsive-sm table-striped">
+                        <thead>
                             <tr>
                                 <th>Username</th>
                                 <th>Description</th>
@@ -64,7 +64,7 @@ class Exercises extends Component {
                                             <td>{el.duration}</td>
                                             <td>{el.date.substring(0, 10)}</td>
                                             <td>
-                                                <Link to={'/edit/' + el._id}>Edit</Link> | <Link to={'/'} onClick={() => this.deleteExercise(el._id)}>Delete</Link>
+                                                <Link to={'/edit/' + el._id}><i className="fa fa-pencil text-info" aria-hidden="true"></i></Link> | <Link to={'/'} onClick={() => this.deleteExercise(el._id)}><i className="fa fa-trash text-danger" aria-hidden="true"></i></Link>
                                             </td>
                                         </tr>
                                     )

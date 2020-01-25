@@ -37,7 +37,6 @@ class EditExercise extends Component {
             date: this.state.date,
         };
 
-        console.log(exercise);
         axios.post('http://localhost:5000/exercises/update/' + this.props.match.params.id, exercise)
             .then((res) => {
                 console.log(res.data);
@@ -83,59 +82,61 @@ class EditExercise extends Component {
 
     render() {
         return (
-            <div>
-                <h3>Edit Exercise Log</h3>
-                <form onSubmit={this.handleSubmit}>
-                    <div className="form-group">
-                        <label>Username: </label>
-                        <select
-                            required
-                            className="form-control"
-                            name="username"
-                            value={this.state.username}
-                            onChange={this.handleChange}>
-                            {
-                                this.state.users.map(user => {
-                                    return <option key={user} value={user} >{user}</option>
-                                })
-                            }
-                        </select>
-                    </div>
-                    <div className="form-group">
-                        <label>Description: </label>
-                        <input type="text"
-                            required
-                            className="form-control"
-                            name="description"
-                            value={this.state.description}
-                            onChange={this.handleChange}
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label>Duration (in minutes): </label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            name="duration"
-                            value={this.state.duration}
-                            onChange={this.handleChange}
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label>Date: </label>
-                        <div>
-                            <DatePicker
-                                selected={this.state.date}
-                                name="date"
-                                onChange={this.handleDateChange}
+            <div className="edit-exercise">
+                <h3 className="mb-4 text-center">Edit Exercise Log</h3>
+                <div className="col offset-md-3 offset-lg-3 col-md-6 col-lg-6 p-5 edit-form">
+                    <form onSubmit={this.handleSubmit}>
+                        <div className="form-group">
+                            <label>Username: </label>
+                            <select
+                                required
+                                className="form-control"
+                                name="username"
+                                value={this.state.username}
+                                onChange={this.handleChange}>
+                                {
+                                    this.state.users.map(user => {
+                                        return <option key={user} value={user} >{user}</option>
+                                    })
+                                }
+                            </select>
+                        </div>
+                        <div className="form-group">
+                            <label>Description: </label>
+                            <input type="text"
+                                required
+                                className="form-control"
+                                name="description"
+                                value={this.state.description}
+                                onChange={this.handleChange}
                             />
                         </div>
-                    </div>
+                        <div className="form-group">
+                            <label>Duration (in minutes): </label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                name="duration"
+                                value={this.state.duration}
+                                onChange={this.handleChange}
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label>Date: </label>
+                            <div>
+                                <DatePicker
+                                    selected={this.state.date}
+                                    name="date"
+                                    onChange={this.handleDateChange}
+                                />
+                            </div>
+                        </div>
 
-                    <div className="form-group">
-                        <input type="submit" value="Update Exercise Log" className="btn btn-primary" />
-                    </div>
-                </form>
+                        <div className="form-group text-center mt-5">
+                            <input type="submit" value="Update Exercise Log" className="btn btn-outline-light btn-lg" />
+                        </div>
+                    </form>
+                </div>
             </div>
         );
     }

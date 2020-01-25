@@ -5,6 +5,7 @@ import Exercises from './components/Exercises';
 import EditExercise from './components/EditExercise';
 import CreateExercise from './components/CreateExercise';
 import CreateUser from './components/CreateUser';
+import './assets/css/main.css'
 
 function App() {
     return (

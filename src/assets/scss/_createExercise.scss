@@ -1,0 +1,7 @@
+.create-exercise {
+    @include transition-ease;
+    .create-exercise-form {
+        background-color: $secondary-color;
+        border-radius: 10px;
+    }
+}

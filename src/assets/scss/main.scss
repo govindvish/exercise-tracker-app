@@ -1,0 +1,14 @@
+@import './config';
+@import './navbar';
+@import './editExercise';
+@import './createExercise';
+@import './createUser';
+@import './exercise';
+
+body {
+    background: $primary-color;
+    color: #000;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1;
+}

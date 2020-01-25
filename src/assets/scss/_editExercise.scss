@@ -1,0 +1,7 @@
+.edit-exercise {
+    @include transition-ease;
+    .edit-form {
+        background-color: $secondary-color;
+        border-radius: 10px;
+    }
+}
