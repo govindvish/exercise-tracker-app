@@ -40,7 +40,7 @@ function CreateExercise() {
 
         axios({
             method: 'POST',
-            url: 'http://localhost:5000/exercises/add',
+            url: process.env.REACT_APP_API_URL + '/exercises/add',
             data: exercise_data
         })
             .then((res) => {
@@ -57,7 +57,7 @@ function CreateExercise() {
         console.log('get users initiated...');
         axios({
             method: 'GET',
-            url: 'http://localhost:5000/users',
+            url: process.env.REACT_APP_API_URL + '/users',
         })
             .then((res) => {
                 console.log(res.data);

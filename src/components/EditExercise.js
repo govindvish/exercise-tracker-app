@@ -41,7 +41,7 @@ function EditExercise(props) {
 
         axios({
             method: 'POST',
-            url: 'http://localhost:5000/exercises/update/' + props.match.params.id,
+            url: process.env.REACT_APP_API_URL + '/exercises/update/' + props.match.params.id,
             data: exercise_data
         })
             .then((res) => {
@@ -60,7 +60,7 @@ function EditExercise(props) {
         console.log('get users initiated...');
         axios({
             method: 'GET',
-            url: 'http://localhost:5000/users',
+            url: process.env.REACT_APP_API_URL + '/users',
         })
             .then((res) => {
                 console.log(res.data);
@@ -77,7 +77,7 @@ function EditExercise(props) {
         console.log('getExercise initiated...');
         axios({
             method: 'GET',
-            url: 'http://localhost:5000/exercises/' + props.match.params.id,
+            url: process.env.REACT_APP_API_URL + '/exercises/' + props.match.params.id,
         })
             .then(res => {
                 exercise.username = res.data.username;
@@ -151,7 +151,7 @@ function EditExercise(props) {
                 </div>
 
                 <div className="form-group">
-                    <input type="submit" value="Edit Exercise Log" className="btn btn-primary" />
+                    <input type="submit" value="Update Exercise Log" className="btn btn-primary" />
                 </div>
             </form>
         </div>

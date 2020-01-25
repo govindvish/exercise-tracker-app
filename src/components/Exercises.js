@@ -5,13 +5,11 @@ import { Link } from 'react-router-dom';
 function Exercises() {
     const [exercises, setExercises] = useState([]);
     const getExercises = () => {
-        console.log('reload getExercises....');
         axios({
             method: 'GET',
-            url: 'http://localhost:5000/exercises/'
+            url: process.env.REACT_APP_API_URL + '/exercises/'
         })
             .then((res) => {
-                console.log(res.data);
                 setExercises(res.data)
             })
             .catch(err => {
@@ -23,7 +21,7 @@ function Exercises() {
         console.log('delete initiated...');
         axios({
             method: 'DELETE',
-            url: 'http://localhost:5000/exercises/' + id,
+            url: process.env.REACT_APP_API_URL + '/exercises/' + id,
         })
             .then((res) => {
                 console.log(res.data);
@@ -46,7 +44,7 @@ function Exercises() {
         return () => {
             mounted = false;
         }
-    }, []);
+    }, [exercises]);
     return (
         <div>
             <h3>Exercises Log</h3>
