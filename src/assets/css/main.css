@@ -84,4 +84,8 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1;
 }
+
+.btn:hover {
+  color: #30C5FF;
+}
 /*# sourceMappingURL=main.css.map */

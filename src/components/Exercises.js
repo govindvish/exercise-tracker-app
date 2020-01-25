@@ -11,7 +11,7 @@ class Exercises extends Component {
     }
 
     deleteExercise = (id) => {
-        axios.delete('http://localhost:5000/exercises/' + id)
+        axios.delete(process.env.REACT_APP_API_URL + '/exercises/' + id)
             .then((res) => {
                 console.log(res.data);
                 this.setState({
@@ -24,7 +24,7 @@ class Exercises extends Component {
     }
 
     getExercises = () => {
-        axios.get('http://localhost:5000/exercises/')
+        axios.get(process.env.REACT_APP_API_URL + '/exercises/')
             .then((res) => {
                 this.setState({
                     exercises: res.data

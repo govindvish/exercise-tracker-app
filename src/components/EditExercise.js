@@ -37,7 +37,7 @@ class EditExercise extends Component {
             date: this.state.date,
         };
 
-        axios.post('http://localhost:5000/exercises/update/' + this.props.match.params.id, exercise)
+        axios.post(process.env.REACT_APP_API_URL + '/exercises/update/' + this.props.match.params.id, exercise)
             .then((res) => {
                 console.log(res.data);
             })
@@ -49,7 +49,7 @@ class EditExercise extends Component {
     }
 
     getUsers = () => {
-        axios.get('http://localhost:5000/users/')
+        axios.get(process.env.REACT_APP_API_URL + '/users/')
             .then((res) => {
                 if (res.data.length > 0) {
                     this.setState({
@@ -61,7 +61,7 @@ class EditExercise extends Component {
     }
 
     getExercises = () => {
-        axios.get('http://localhost:5000/exercises/' + this.props.match.params.id)
+        axios.get(process.env.REACT_APP_API_URL + '/exercises/' + this.props.match.params.id)
             .then((res) => {
                 this.setState({
                     username: res.data.username,

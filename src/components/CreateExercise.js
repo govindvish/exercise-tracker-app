@@ -38,7 +38,7 @@ class CreateExercise extends Component {
         };
 
         console.log(exercise);
-        axios.post('http://localhost:5000/exercises/add', exercise)
+        axios.post(process.env.REACT_APP_API_URL + '/exercises/add', exercise)
             .then((res) => {
                 console.log(res.data);
             })
@@ -50,7 +50,7 @@ class CreateExercise extends Component {
     }
 
     getUsers = () => {
-        axios.get('http://localhost:5000/users/')
+        axios.get(process.env.REACT_APP_API_URL + '/users/')
             .then((res) => {
                 if (res.data.length > 0) {
                     this.setState({

@@ -25,7 +25,7 @@ class CreateUser extends Component {
         console.log(user);
         axios({
             method: 'POST',
-            url: 'http://localhost:5000/users/add',
+            url: process.env.REACT_APP_API_URL + '/users/add',
             data: user
         })
             .then((res) => {
