@@ -1,0 +1,7 @@
+.create-user {
+    @include transition-ease;
+    .create-user-form {
+        background-color: $secondary-color;
+        border-radius: 10px;
+    }
+}

@@ -45,11 +45,12 @@ function Exercises() {
             mounted = false;
         }
     }, [exercises]);
+
     return (
-        <div>
-            <h3>Exercises Log</h3>
-            <table className="table">
-                <thead className="thead-light">
+        <div className="exercise-log">
+            <h3 className="mb-4 text-center">Exercises Log</h3>
+            <table className="table table-responsive-sm table-striped">
+                <thead>
                     <tr>
                         <th>Username</th>
                         <th>Description</th>
@@ -68,7 +69,7 @@ function Exercises() {
                                     <td>{el.duration}</td>
                                     <td>{el.date.substring(0, 10)}</td>
                                     <td>
-                                        <Link to={{ pathname: '/edit/' + el._id, editData: { username: el.username, description: el.description, duration: el.duration, date: el.date, } }}>Edit</Link> | <Link to={'/'} onClick={() => deleteExercise(el._id)}>Delete</Link>
+                                        <Link to={{ pathname: '/edit/' + el._id, editData: { username: el.username, description: el.description, duration: el.duration, date: el.date, } }}><i className="fa fa-pencil text-info" aria-hidden="true"></i></Link> | <Link to={'/'} onClick={() => deleteExercise(el._id)}><i className="fa fa-trash text-danger" aria-hidden="true"></i></Link>
                                     </td>
                                 </tr>
                             )

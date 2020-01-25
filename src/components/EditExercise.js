@@ -101,59 +101,61 @@ function EditExercise(props) {
         }
     }, []);
     return (
-        <div>
-            <h3>Edit Exercise Logs</h3>
-            <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label>Username: </label>
-                    <select
-                        required
-                        className="form-control"
-                        name="username"
-                        value={exercise.username}
-                        onChange={handleChange}>
-                        {
-                            users.map(user => {
-                                return <option key={user} value={user} >{user}</option>
-                            })
-                        }
-                    </select>
-                </div>
-                <div className="form-group">
-                    <label>Description: </label>
-                    <input type="text"
-                        required
-                        className="form-control"
-                        name="description"
-                        value={exercise.description}
-                        onChange={handleChange}
-                    />
-                </div>
-                <div className="form-group">
-                    <label>Duration (in minutes): </label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        name="duration"
-                        value={exercise.duration}
-                        onChange={handleChange}
-                    />
-                </div>
-                <div className="form-group">
-                    <label>Date: </label>
-                    <div>
-                        <DatePicker
-                            selected={date}
-                            name="date"
-                            onChange={handleDate}
+        <div className="edit-exercise">
+            <h3 className="mb-4 text-center">Edit Exercise Logs</h3>
+            <div className="col offset-md-3 offset-lg-3 col-md-6 col-lg-6 p-5 edit-form">
+                <form onSubmit={handleSubmit}>
+                    <div className="form-group">
+                        <label>Username: </label>
+                        <select
+                            required
+                            className="form-control"
+                            name="username"
+                            value={exercise.username}
+                            onChange={handleChange}>
+                            {
+                                users.map(user => {
+                                    return <option key={user} value={user} >{user}</option>
+                                })
+                            }
+                        </select>
+                    </div>
+                    <div className="form-group">
+                        <label>Description: </label>
+                        <input type="text"
+                            required
+                            className="form-control"
+                            name="description"
+                            value={exercise.description}
+                            onChange={handleChange}
                         />
                     </div>
-                </div>
+                    <div className="form-group">
+                        <label>Duration (in minutes): </label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            name="duration"
+                            value={exercise.duration}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label>Date: </label>
+                        <div>
+                            <DatePicker
+                                selected={date}
+                                name="date"
+                                onChange={handleDate}
+                            />
+                        </div>
+                    </div>
 
-                <div className="form-group">
-                    <input type="submit" value="Update Exercise Log" className="btn btn-primary" />
-                </div>
-            </form>
+                    <div className="form-group text-center mt-5">
+                        <input type="submit" value="Update Exercise Log" className="btn btn-outline-light btn-lg" />
+                    </div>
+                </form>
+            </div>
         </div>
     )
 }
